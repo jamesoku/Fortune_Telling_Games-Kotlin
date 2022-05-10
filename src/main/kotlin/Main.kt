@@ -1,7 +1,9 @@
 import java.nio.file.Files
 import java.nio.file.Paths
 
-fun main() {
+//Created data class to store the name of the person
+data class Person(var Fname: String, var lname:String)
+fun getname(): Person{
     println("### MAKE SURE ALL NAMES ARE SPELLED CORRECTLY AND ARE MORE THAN 2 LETTERS ###")
     println()
     var Fname: String
@@ -13,45 +15,53 @@ fun main() {
         print("Whats is your first name: ")
         Fname = readLine().toString()
         var count: Int = 0
-        var check: Boolean
+        var check: Boolean = true
 
-        // loops through each character and checked if it macthes with regex
-        //This make sure the inputs must be letters only
-        for (i in Fname) {
-            if (i.toString().matches((Regex("[a-zA-Z]")))) {
-                count = count + 1
+        if (Fname != null) {
+            // loops through each character and checked if it macthes with regex
+            //This make sure the inputs must be letters only
+            for (i in Fname) {
+                if (i.toString().matches((Regex("[a-zA-Z]")))) {
+                    count = count + 1
+                }
+            }
+            //checks if first name is correct
+            if (Fname.length - count == 0 && Fname.length >= 2) {
+                check = false
+            } else {
+                check = true
             }
         }
-        //checks if first name is correct
-        if (Fname.length - count == 0 && Fname.length >= 2) {
-            check = false
-        } else {
-            check = true
-        }
     } while (check);
-
-    // Gets the Lastname from the user most of the stuff that
-    // is implemented from the first name is implemented here
 
     do {
         print(" Whats is your last name: ")
         lname = readLine().toString()
         var count: Int = 0
-        var check: Boolean
+        var check: Boolean = true
 
-        for (i in lname) {
-            if (i.toString().matches((Regex("[a-zA-Z]")))) {
-                count = count + 1
+        if (lname != null) {
+            for (i in lname) {
+                if (i.toString().matches((Regex("[a-zA-Z]")))) {
+                    count = count + 1
+                }
+            }
+
+            if (lname.length - count == 0 && lname.length >= 2) {
+                check = false
+            } else {
+                check = true
             }
         }
-
-        if (lname.length - count == 0 && lname.length >= 2) {
-            check = false
-        } else {
-            check = true
-        }
     } while (check);
+    return Person(Fname, lname)
+}
 
+fun main() {
+    println("### MAKE SURE ALL NAMES ARE SPELLED CORRECTLY AND ARE MORE THAN 2 LETTERS ###")
+    println()
+    val (Fname, lname) = getname()
+    var DOB: String
     println()
 
     println("Hello, $Fname $lname!\n Welcome to James fortune telling.\n")
@@ -63,7 +73,7 @@ fun main() {
         println("Your wish is my command!\n Now lets answer a few questions\n")
 
         do {
-            var check: Boolean
+            var check: Boolean = true
             print("What is your date of birth(Ex. dd/mm/yyyy): ")
             DOB = readLine().toString()
             //Use regex to make sure the format i want is correct
