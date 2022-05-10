@@ -2,7 +2,7 @@
 
 This is a fortune-telling game that gets inputs from the user, does some arithmetics and read the fortune from a file.
 
-You can watch a demo of my software here: [Software Demo Video](https://youtu.be/wWjg32KJoJM)
+You can watch a demo of my software here: [Software Demo Video](https://youtu.be/RLVTIqSOoP0)
 
 # Development Environment
 
@@ -16,6 +16,5 @@ You can watch a demo of my software here: [Software Demo Video](https://youtu.be
 * [Kotlin](https://kotlinlang.org/)
 
 {Make a list of things that you need to fix, improve, and add in the future.}
-* Use functions
 * Write the user's name to a file, so they can play once.
 * Add more fortunes to the list.
